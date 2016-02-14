@@ -26,14 +26,14 @@ def authorized(oauth_token):
     myLanguages = {}
     for aRepo in theRepos:
         if myLanguages.has_key(aRepo.get('language')):
-            myLanguages[aRepo.get('language')] += 1
+            myLanguages[aRepo.get('language')] += 1 #
         else:
-            myLanguages[aRepo.get('language')] = 1
+            myLanguages[aRepo.get('language')] = 1 #adding it to a dictionary if not there
     print myLanguages
+    print findMatch('Java')
     #
     return j
     #repourl = 'https://api.github.com/users/{0}/repos'.format(username)
-
 
 @app.route('/dashboard')
 def dashboard():
@@ -44,5 +44,24 @@ def test():
     return render_template('test.html')
 
 def findMatch(lang):
-    pubRepos = 'https://api.github.com/repositories'
-    pubRepoRes = requests.get(pubRepos)
+	nameList = []
+	pubRepos = 'https://api.github.com/repositories'
+	pubRepoRes = requests.get(pubRepos)
+	fileJson = json.loads(pubRepoRes._content)
+	for repo in fileJson:
+		resObj = repo.get('languages_url')
+		res = requests.get(resObj)
+    	resJson = json.loads(res._content) #languages url
+    	loginName = repo.get('owner').get('login')
+    	print loginName
+    	if(resJson.has_key(lang)):
+    		nameList.append(loginName)
+    	print nameList
+    	return nameList
+
+
+
+
+
+
+
