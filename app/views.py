@@ -43,5 +43,6 @@ def dashboard():
 def test():
     return render_template('test.html')
 
-def findMatch(lang, oauth_token):
-    return []
+def findMatch(lang):
+    pubRepos = 'https://api.github.com/repositories'
+    pubRepoRes = requests.get(pubRepos)
