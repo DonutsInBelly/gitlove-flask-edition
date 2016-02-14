@@ -3,7 +3,7 @@ from flask.ext.github import GitHub
 #from __init__ import app
 from app import app,github
 
-import requests, json, urllib2
+import requests, json
 
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
@@ -18,8 +18,19 @@ def authorize():
 @github.authorized_handler
 def authorized(oauth_token):
     url = 'https://api.github.com/user?access_token={0}'.format(oauth_token)
-    response = requests.get(url)
-    j = json.loads(response._content).get('repos_url')
+    myResponse1 = requests.get(url)
+    myRepos = json.loads(myResponse1._content).get('repos_url')
+    myReponse2 = requests.get(myRepos)
+    theRepos = json.loads(myReponse2._content)
+    j = theRepos[0].get('language')
+    myLanguages = {}
+    for aRepo in theRepos:
+        if myLanguages.has_key(aRepo.get('language')):
+            myLanguages[aRepo.get('language')] += 1
+        else:
+            myLanguages[aRepo.get('language')] = 1
+    print myLanguages
+    #
     return j
     #repourl = 'https://api.github.com/users/{0}/repos'.format(username)
 
@@ -31,3 +42,6 @@ def dashboard():
 @app.route('/test')
 def test():
     return render_template('test.html')
+
+def findMatch(lang, oauth_token):
+    return []
