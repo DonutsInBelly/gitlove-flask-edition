@@ -25,14 +25,37 @@
 .navbar-right {
     float: right!important;
     margin-right: -15px;
-    margin-top: 14px;
+    margin-top: -38px;
 }
 
-#landing, #match {
-	background-image: url("../img/landingpic.svg");
+#match1 {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 100px);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: no-repeat top center scroll;
+
+    background-image: linear-gradient(to bottom, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -moz-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -o-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -ms-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(26,26,26,0.6)), to(rgba(26,26,26,0.6))), url("../img/landingpic.svg");
+    background-image: -webkit-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+}
+
+#landing {
+	background-image: linear-gradient(to bottom, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -moz-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -o-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -ms-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(26,26,26,0.6)), to(rgba(26,26,26,0.6))), url("../img/landingpic.svg");
+    background-image: -webkit-linear-gradient(top, rgba(26,26,26,0.6), rgba(26,26,26,0.6)), url("../img/landingpic.svg");
+    
 	background-position:50% 50%; 
 	background-repeat: no-repeat;
-    /*background-attachment: fixed;*/
+    background-attachment: fixed;
     background-position: center;
     background-size:cover; 
     min-height: 750px;
@@ -41,15 +64,20 @@
 }
 
 #match{
-	background-image: url("../img/landingpic.svg");
-	background-position:50% 50%; 
-	background-repeat: no-repeat;
+	/*background: url("../img/landingpic.svg");*/
+	/*background-position:50% 50%; */
+	/*background-repeat: no-repeat;*/
     /*background-attachment: fixed;*/
-    background-position: center;
-    background-size:cover; 
+    /*background-position: center;*/
+    /*background-size:cover; */
     width: 100%;
     max-height: 100%;
     text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: calc(100% - 100px);
+    color: #f9f9f9;
 }
 
 #match1 .navbar-right {
@@ -67,7 +95,7 @@
 }
 
 #landing #landing-overlay, #match #match-overlay {
-	background-color: rgba(26,26,26, 127);
+	/*background-color: rgba(26,26,26, 127);*/
 	opacity: 0.6;
 	background-position:50% 50%; 
 	background-repeat: no-repeat;
@@ -76,6 +104,10 @@
     background-size:cover; 
     min-height: 750px;
     max-width: 100%;
+}
+
+#match-overlay {
+    /*display: none;*/
 }
 
 #landing > h1, #match > h1 {
@@ -119,12 +151,27 @@
 }
 
 
-html, body {
+/*html, body {
     top: 0;
     left: 0;
     margin: 0;
     padding: 0;
     line-height: 0;
+}*/
+
+html, body{ 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+    top: 0;
+    left: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
  
 #about {
@@ -194,6 +241,7 @@ html, body {
     background-color: #ff5555;
 }
  
+ 
 #footer {
     position: relative;
     background-color: #ff3333;
@@ -237,6 +285,75 @@ html, body {
 	display: block;
 }
 
+
+.container1 {
+	background-color: gray;
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+.card_container {
+	display: table-cell;
+}
+
+.card_row {
+	display: table;
+	margin: 0 auto;
+	border-spacing: 50px 15px;
+}
+
+.card {
+	/*height: 400px;*/
+	width: 700px;
+	margin: 30px 50px;
+	background-color: rgba(255,255,255,0.7);
+	display: table-cell;
+	border-radius: 40px;
+	padding-top:50px;
+	height:350px;
+	width:700px;
+}
+
+.card_img {
+    width: 300px;
+    height: 300px;
+    bottom: 30px;
+    margin-right: 0;
+    background: url("../img/avatar1.svg") 50% 50% no-repeat;
+    border-radius: 20px;
+    position: relative;
+    float: left;
+}
+
+.text_container {
+	position: relative;
+    height: 100%;
+    margin-left: 300px;
+    padding-right: 30px;
+}
+
+.card h1 {
+	color: #ff5555;
+	margin-bottom: 0;
+	font-family: Montserrat, sans-serif;
+}
+
+.card h2 {
+	font-size: 14px;
+	color: #1a1a1a;
+	font-family: Opens Sans, sans-serif;
+	/*margin-bottom: 30px;*/
+}
+
+.card p {
+	font-size: 21px;
+	color: #1a1a1a;
+	font-family: Open Sans, sans-serif;
+}
 
 @media(min-width: 320px) and (max-width: 750px){
 
